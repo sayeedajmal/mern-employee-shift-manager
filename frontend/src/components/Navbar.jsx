@@ -9,7 +9,7 @@ const Navbar = ({ activeMenu }) => {
       <button
         className="block lg:hidden text-black focus:outline-none focus:ring-2 focus:ring-primary p-1 rounded-md"
         onClick={() => setOpenSideMenu(!openSideMenu)}
-        aria-label={openSideMenu ? "Menü schließen" : "Menü öffnen"}
+        aria-label={openSideMenu ? "Close menu" : "Open menu"}
         aria-expanded={openSideMenu}
       >
         {openSideMenu ? (
@@ -19,7 +19,7 @@ const Navbar = ({ activeMenu }) => {
         )}
       </button>
 
-      <h2 className="text-lg font-medium text-black">Schichtverwaltungs-APP</h2>
+      <h2 className="text-lg font-medium text-black">Shift Management APP</h2>
 
       {openSideMenu && (
         <div className="fixed top-15.25 -ml-4 bg-white">

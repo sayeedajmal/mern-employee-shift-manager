@@ -14,7 +14,7 @@ const StatisticBar = ({ events, user }) => {
       <div
         className="relative w-full h-6 bg-gray-200 rounded overflow-hidden"
         role="img"
-        aria-label={`Schichtverteilung für ${user.name}: ${morningCount} Früh, ${nightCount} Spät von insgesamt ${totalCount} Schichten`}
+        aria-label={`Shift distribution for ${user.name}: ${morningCount} Early, ${nightCount} Late out of ${totalCount} total shifts`}
       >
         <div
           className="absolute top-0 left-0 h-full bg-yellow-400"
@@ -35,7 +35,7 @@ const StatisticBar = ({ events, user }) => {
       <div className="flex justify-between mt-2 text-xs md:text-sm text-center">
         <span
           className="text-yellow-600 font-semibold"
-          aria-label={`${morningCount} Frühschichten`}
+          aria-label={`${morningCount} Early shifts`}
         >
           F: {morningCount}
         </span>
@@ -47,7 +47,7 @@ const StatisticBar = ({ events, user }) => {
         </span>
         <span
           className="text-purple-600 font-semibold"
-          aria-label={`${nightCount} Spätschichten`}
+          aria-label={`${nightCount} Late shifts`}
         >
           S: {nightCount}
         </span>

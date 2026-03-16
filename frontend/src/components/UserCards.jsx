@@ -9,7 +9,7 @@ const UserCard = ({ userInfo }) => {
   const navigate = useNavigate();
   const handleDelete = async (userId) => {
     const isConfirmed = window.confirm(
-      "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?"
+      "Are you sure you want to delete this user?"
     );
 
     if (isConfirmed) {
@@ -21,7 +21,7 @@ const UserCard = ({ userInfo }) => {
           window.location.reload();
         }
       } catch (error) {
-        toast.error("Fehler beim Löschen des Benutzers:", error);
+        toast.error("Error deleting user:", error);
       }
     }
   };
@@ -48,21 +48,21 @@ const UserCard = ({ userInfo }) => {
           <button
             className="flex md:flex download-btn group focus:ring-2 focus:ring-primary"
             onClick={() => navigate(`${userInfo._id}`)}
-            aria-label={`Benutzer ${userInfo?.name} bearbeiten`}
+            aria-label={`Edit user ${userInfo?.name}`}
           >
             <MdEdit className="text-lg" />
             <span className="hidden group-hover:block transition duration-200 ease-in-out ml-1">
-              Bearbeiten
+              Edit
             </span>
           </button>
           <button
             className="flex md:flex delete-btn group focus:ring-2 focus:ring-red-500"
             onClick={() => handleDelete(userInfo?._id)}
-            aria-label={`Benutzer ${userInfo?.name} löschen`}
+            aria-label={`Delete user ${userInfo?.name}`}
           >
             <MdDelete className="text-lg" />
             <span className="hidden group-hover:block transition duration-200 ease-in-out ml-1">
-              Löschen
+              Delete
             </span>
           </button>
         </div>
@@ -90,7 +90,7 @@ const UserCard = ({ userInfo }) => {
           } bg-gray-50 px-4 py-0.5 rounded`}
         >
           <span className="text-xs font-semibold capitalize">
-            {userInfo?.workType === "full-time" ? "Vollzeit" : "Teilzeit"}
+            {userInfo?.workType === "full-time" ? "Full-time" : "Part-time"}
           </span>
         </div>
         <div
@@ -99,7 +99,7 @@ const UserCard = ({ userInfo }) => {
           }  bg-gray-50 px-4 py-0.5 rounded`}
         >
           <span className="text-xs font-semibold capitalize">
-            {userInfo?.isActive ? `Aktiv` : "Inaktiv"}
+            {userInfo?.isActive ? `Active` : "Inactive"}
           </span>
         </div>
       </div>

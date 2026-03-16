@@ -42,7 +42,7 @@ const SideMenu = ({ activeMenu }) => {
             onError={(e) => {
               e.currentTarget.src = "https://avatar.iran.liara.run/public/12";
             }}
-            alt={`Profilbild von ${user?.name || "Benutzer"}`}
+            alt={`Profile picture of ${user?.name || "User"}`}
           />
         </div>
 

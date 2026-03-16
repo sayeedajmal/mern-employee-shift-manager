@@ -33,11 +33,11 @@ axiosInstance.interceptors.response.use(
       if (error.response.status === 401) {
         window.location.href = "/login";
       } else if (error.response.status === 500) {
-        toast.error("Serverfehler. Bitte versuchen Sie es später erneut.");
+        toast.error("Server error. Please try again later.");
       }
     } else if (error.code === "ECONNABORTED") {
       toast.error(
-        "Zeitüberschreitung der Anfrage. Bitte versuchen Sie es erneut."
+        "Request timeout. Please try again."
       );
     }
     return Promise.reject(error);

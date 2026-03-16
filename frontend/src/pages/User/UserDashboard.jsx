@@ -49,13 +49,13 @@ const UserDashboard = () => {
           <div className="flex items-center justify-between">
             <div className="col-span-3">
               <h2 className="text-xl md:text-2xl">
-                Guten{" "}
+                Good{" "}
                 {moment().hour() < 12
-                  ? "Morgen"
+                  ? "Morning"
                   : moment().hour() < 19
-                  ? "Tag"
-                  : "Abend"}{" "}
-                <span className="text-red-500">{user?.name ?? "Benutzer"}</span>
+                  ? "Day"
+                  : "Evening"}{" "}
+                <span className="text-red-500">{user?.name ?? "User"}</span>
               </h2>
               <p className="text-xs md:text-[13px] text-gray-400 mt-1.5">
                 {moment().format("DD.MM.YYYY")}
@@ -76,7 +76,7 @@ const UserDashboard = () => {
         <div className="md:col-span-2">
           <div className="card">
             <div className="flex items-center justify-between">
-              <h5 className="text-lg">Letzte Schichten</h5>
+              <h5 className="text-lg">Recent Shifts</h5>
             </div>
             <div className="mt-4">
               {events?.length > 0 && <UserCalendar events={events} />}

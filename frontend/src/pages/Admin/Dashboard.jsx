@@ -28,7 +28,7 @@ const Dashboard = () => {
           { start: updated.start, end: updated.end },
         );
         if (response?.status === 200) {
-          toast.success("Schicht erfolgreich aktualisiert");
+          toast.success("Shift updated successfully");
           getAllShifts();
         }
       } catch (error) {
@@ -80,13 +80,13 @@ const Dashboard = () => {
           <div className="flex items-center justify-between">
             <div className="col-span-3">
               <h2 className="text-xl md:text-2xl">
-                Guten{" "}
+                Good{" "}
                 {moment().hour() < 12
-                  ? "Morgen"
+                  ? "Morning"
                   : moment().hour() < 19
-                    ? "Tag"
-                    : "Abend"}{" "}
-                <span className="text-red-500">{user?.name ?? "Benutzer"}</span>
+                    ? "Day"
+                    : "Evening"}{" "}
+                <span className="text-red-500">{user?.name ?? "User"}</span>
               </h2>
               <p className="text-xs md:text-[13px] text-gray-400 mt-1.5">
                 {moment().format("DD.MM.YYYY")}
@@ -94,7 +94,7 @@ const Dashboard = () => {
             </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              aria-label="Willkommensnachricht schließen"
+              aria-label="Close welcome message"
               className="p-3 bg-linear-to-r from-red-400 to-red-600 text-white rounded-full shadow-md hover:shadow-lg hover:brightness-105 transition-all duration-300 ease-out focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
             >
               <IoIosCloseCircleOutline className="text-2xl" />
@@ -107,19 +107,19 @@ const Dashboard = () => {
         <div className="md:col-span-2">
           <div className="card">
             <div className="flex items-center justify-between">
-              <h5 className="text-lg">Letzte Schichten</h5>
+              <h5 className="text-lg">Recent Shifts</h5>
               <div>
                 <select
                   className="select-boxx focus:ring-2 focus:ring-primary"
                   onChange={(e) => setTeamFilter(e.target.value)}
                   value={teamFilter}
-                  aria-label="Nach Team filtern"
+                  aria-label="Filter by team"
                 >
-                  <option value="all">Alle Teams</option>
-                  <option value="sozialarbeiter">Sozialarbeiter</option>
-                  <option value="sozialbetreuer">Sozialbetreuer</option>
+                  <option value="all">All Teams</option>
+                  <option value="sozialarbeiter">Social Worker</option>
+                  <option value="sozialbetreuer">Social Assistant</option>
                   <option value="sozialbetreuerhelfer">
-                    Sozialbetreuerhelfer
+                    Assistant Social Worker
                   </option>
                 </select>
               </div>

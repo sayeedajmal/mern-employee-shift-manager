@@ -19,12 +19,12 @@ const ChangePassword = () => {
     e.preventDefault();
 
     if (!password) {
-      toast.error("Sie müssen Ihr altes Passwort eingeben");
+      toast.error("You must enter your old password");
       return;
     }
 
     if (!newPassword) {
-      toast.error("Sie müssen Ihr neues Passwort eingeben");
+      toast.error("You must enter your new password");
       return;
     }
 
@@ -53,15 +53,15 @@ const ChangePassword = () => {
   };
 
   return (
-    <DashboardLayout activeMenu="Passwort ändern">
+    <DashboardLayout activeMenu="Change Password">
       <div className="lg:w-[80%] h-auto md:h-full m-auto mt-10 md:mt-0 flex flex-col justify-center">
         <div className="flex justify-between">
           <h3 className="text-xl font-semibold text-black">
-            Ändern Sie Ihr Passwort
+            Change Your Password
           </h3>
         </div>
         <p className="text-sx text-slate-700 mt-1.25 mb-6">
-          Bitte geben Sie Ihr altes und neues Passwort ein.
+          Please enter your old and new password.
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -69,14 +69,14 @@ const ChangePassword = () => {
             <Input
               value={user?.name}
               readonly
-              label="Vollständiger Name"
+              label="Full Name"
               placeholder="Max Mustermann"
               type="text"
             />
             <Input
               value={user?.email}
               readonly
-              label="E-Mail-Adresse"
+              label="Email Address"
               placeholder="max@example.com"
               type="text"
             />
@@ -85,20 +85,20 @@ const ChangePassword = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              label="Altes Passwort"
-              placeholder="Bitte geben Sie Ihr altes Passwort ein"
+              label="Old Password"
+              placeholder="Please enter your old password"
             />
             <Input
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               type="password"
-              label="Neues Passwort"
-              placeholder="Bitte geben Sie Ihr neues Passwort ein"
+              label="New Password"
+              placeholder="Please enter your new password"
             />
           </div>
 
           <button type="submit" className="btn-primary" disabled={loading}>
-            PASSWORT AKTUALISIEREN
+            UPDATE PASSWORD
           </button>
         </form>
       </div>

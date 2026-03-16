@@ -100,8 +100,8 @@ const HorizontalTable = ({ selectedMonth, handleFilter, filteredEvents }) => {
 
                   if (eventForDay) {
                     const hour = moment(eventForDay.start).format("HH:mm");
-                    if (hour === "08:00") return "Früh";
-                    if (hour === "13:30") return "Spät";
+                    if (hour === "08:00") return "Early";
+                    if (hour === "13:30") return "Late";
                   }
                   return "";
                 })()}

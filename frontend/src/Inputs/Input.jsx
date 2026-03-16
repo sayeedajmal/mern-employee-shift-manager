@@ -30,7 +30,7 @@ const Input = ({ value, onChange, label, placeholder, type }) => {
               size={22}
               className="text-primary cursor-pointer"
               onClick={toggleShowPassword}
-              aria-label="Passwort verbergen"
+              aria-label="Hide password"
               role="button"
             />
           ) : (
@@ -38,7 +38,7 @@ const Input = ({ value, onChange, label, placeholder, type }) => {
               size={22}
               className="text-slate cursor-pointer"
               onClick={toggleShowPassword}
-              aria-label="Passwort anzeigen"
+              aria-label="Show password"
               role="button"
             />
           ))}

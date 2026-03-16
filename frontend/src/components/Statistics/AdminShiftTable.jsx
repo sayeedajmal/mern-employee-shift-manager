@@ -90,10 +90,10 @@ const AdminShiftTable = ({ selectedMonth, users, filteredEvents }) => {
           <button
             className="flex md:flex download-btn shadow-sm focus:ring-2 focus:ring-primary"
             onClick={handleReset}
-            aria-label="Filter zurücksetzen"
+            aria-label="Reset filters"
           >
             <RiResetLeftFill className="text-lg" />
-            Zurücksetzen
+            Reset
           </button>
         )}
       </div>

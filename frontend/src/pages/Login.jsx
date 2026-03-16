@@ -18,12 +18,12 @@ const Login = () => {
     e.preventDefault();
 
     if (!validateEmail(email)) {
-      toast.error("Bitte geben Sie eine gültige E-Mail-Adresse ein");
+      toast.error("Please enter a valid email address");
       return;
     }
 
     if (!password) {
-      toast.error("Bitte geben Sie das Passwort ein");
+      toast.error("Please enter your password");
       return;
     }
 
@@ -36,7 +36,7 @@ const Login = () => {
       const { token, role } = response.data;
 
       if (token) {
-        toast.success("Anmeldung war erfolgreich");
+        toast.success("Login successful");
         localStorage.setItem("token", token);
         updateUser(response.data);
 
@@ -53,7 +53,7 @@ const Login = () => {
         toast.error(error.response.data.message);
       } else {
         toast.error(
-          "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
+          "Something went wrong. Please try again."
         );
       }
     }
@@ -62,30 +62,30 @@ const Login = () => {
   return (
     <AuthLayout>
       <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-black">Willkommen zurück</h3>
+        <h3 className="text-xl font-semibold text-black">Welcome back</h3>
         <p className="text-xs text-slate-700 mt-1 mb-6">
-          Bitte geben Sie Ihre Daten ein, um sich einzuloggen
+          Please enter your details to login
         </p>
 
         <form onSubmit={handleLogin}>
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            label="E-Mail-Adresse"
-            placeholder="max@mustermann.de"
+            label="Email Address"
+            placeholder="max@example.com"
             type="text"
           />
 
           <Input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            label="Passwort"
-            placeholder="Mindestens 8 Zeichen"
+            label="Password"
+            placeholder="Minimum 8 characters"
             type="password"
           />
 
           <button type="submit" className="btn-primary">
-            EINLOGGEN
+            LOGIN
           </button>
         </form>
       </div>

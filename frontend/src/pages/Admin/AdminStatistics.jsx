@@ -72,11 +72,11 @@ const AdminStatistics = () => {
   }, [selectedMonth]);
 
   return (
-    <DashboardLayout activeMenu="Statistiken anzeigen">
+    <DashboardLayout activeMenu="View Statistics">
       <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="col-span-1 md:col-span-3 bg-white rounded-2xl shadow-md p-4">
           <h2 className="text-xl font-semibold mb-4">
-            Monatliche Schichtübersicht:
+            Monthly Shift Overview:
             <span className="text-red-500">
               {" "}
               {moment(selectedMonth).format("MM/YYYY")}
@@ -85,7 +85,7 @@ const AdminStatistics = () => {
           <div className="flex flex-col md:flex-row justify-between gap-4">
             <button
               onClick={handleLeftClick}
-              aria-label="Vorheriger Monat"
+              aria-label="Previous Month"
               className="focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full"
             >
               <FaChevronLeft
@@ -95,7 +95,7 @@ const AdminStatistics = () => {
             </button>
 
             <div className="bg-yellow-100 rounded-2xl p-4 shadow-md flex-3 ">
-              <p className="text-lg font-medium">Frühschichten</p>
+              <p className="text-lg font-medium">Early Shifts</p>
               <p className="text-3xl font-bold text-yellow-600">
                 {
                   events.filter((event) =>
@@ -105,13 +105,13 @@ const AdminStatistics = () => {
               </p>
             </div>
             <div className="bg-blue-100 rounded-2xl p-4 shadow-md flex-3 ">
-              <p className="text-lg font-medium">Gesamte Schichten</p>
+              <p className="text-lg font-medium">Total Shifts</p>
               <p className="text-3xl font-bold text-blue-600">
                 {events.length}
               </p>
             </div>
             <div className="bg-purple-100 rounded-2xl p-4 shadow-md flex-3">
-              <p className="text-lg font-medium">Spätschichten</p>
+              <p className="text-lg font-medium">Late Shifts</p>
               <p className="text-3xl font-bold text-purple-600">
                 {
                   events.filter((event) =>
@@ -122,7 +122,7 @@ const AdminStatistics = () => {
             </div>
             <button
               onClick={handleRightClick}
-              aria-label="Nächster Monat"
+              aria-label="Next Month"
               className="focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full"
             >
               <FaChevronRight
@@ -135,7 +135,7 @@ const AdminStatistics = () => {
         <div className="print-area col-span-1 md:col-span-3 bg-white rounded-2xl shadow-md p-4 overflow-auto print:overflow-visible">
           <div className="flex flex-row justify-between">
             <h2 className="text-xl font-semibold mb-4">
-              Monatliche Schichtübersicht{" "}
+              Monthly Shift Overview{" "}
               <span className="text-red-500">
                 {" "}
                 {moment(selectedMonth).format("MM/YYYY")}
@@ -143,7 +143,7 @@ const AdminStatistics = () => {
             </h2>
             <button
               onClick={() => window.print()}
-              aria-label="Übersicht drucken"
+              aria-label="Print Overview"
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               <FaPrint />

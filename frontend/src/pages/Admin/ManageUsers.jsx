@@ -19,7 +19,7 @@ const ManageUsers = () => {
         setAllUsers(response.data.users);
       }
     } catch (error) {
-      toast.error("Fehler beim Abrufen der Benutzer:", error);
+      toast.error("Error fetching users:", error);
     }
   };
 
@@ -61,55 +61,59 @@ const ManageUsers = () => {
   }, []);
 
   return (
-    <DashboardLayout activeMenu="Teammitglieder">
+    <DashboardLayout activeMenu="Team Members">
       <div className="mt-5 mb-10">
         <div className="flex md:flex-row md:items-center justify-between">
-          <h2 className="text-xl md:text-xl font-medium">Teammitglieder</h2>
+          <h2 className="text-xl md:text-xl font-medium">Team Members</h2>
 
           <div className="flex flex-col sm:flex-row gap-2">
-            <span className="select-boxx" aria-live="polite">{`Anzahl: ${
+            <span className="select-boxx" aria-live="polite">{`Count: ${
               handleFilter()?.length
             }`}</span>
             <select
               className="select-boxx focus:ring-2 focus:ring-primary"
               onChange={(e) => setTeamFilter(e.target.value)}
               value={teamFilter}
-              aria-label="Nach Team filtern"
+              aria-label="Filter by team"
             >
-              <option value="all">Alle Teams</option>
-              <option value="sozialarbeiter">Sozialarbeiter</option>
-              <option value="sozialbetreuer">Sozialbetreuer</option>
-              <option value="sozialbetreuerhelfer">Sozialbetreuerhelfer</option>
+              <option value="all">All Teams</option>
+              <option value="sozialarbeiter">Social Worker</option>
+              <option value="sozialbetreuer">Social Assistant</option>
+              <option value="sozialbetreuerhelfer">Assistant Social Worker</option>
+
             </select>
             <select
               className="select-boxx focus:ring-2 focus:ring-primary"
               onChange={(e) => setWorkFilter(e.target.value)}
               value={workFilter}
-              aria-label="Nach Arbeitsart filtern"
+              aria-label="Filter by work type"
             >
-              <option value="all">Alle Arbeitsarten</option>
-              <option value="full-time">Vollzeit</option>
-              <option value="part-time">Teilzeit</option>
+              <option value="all">All Work Types</option>
+              <option value="full-time">Full-time</option>
+              <option value="part-time">Part-time</option>
+
             </select>
             <select
               className="select-boxx focus:ring-2 focus:ring-primary"
               onChange={(e) => setActiveFilter(e.target.value)}
               value={activeFilter}
-              aria-label="Nach Status filtern"
+              aria-label="Filter by status"
             >
-              <option value="all">Alle Status</option>
-              <option value="active">Aktiv</option>
-              <option value="deactive">Inaktiv</option>
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="deactive">Inactive</option>
+
             </select>
             {(teamFilter !== "all" || workFilter !== "all") && (
               <button
                 className="flex md:flex download-btn shadow-sm focus:ring-2 focus:ring-primary"
                 onClick={handleReset}
-                aria-label="Filter zurücksetzen"
+                aria-label="Reset Filter"
               >
                 <RiResetLeftFill className="text-lg" />
-                Zurücksetzen
+                Reset
               </button>
+
             )}
           </div>
         </div>

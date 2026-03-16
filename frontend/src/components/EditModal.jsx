@@ -23,7 +23,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
         setAllUsers(response.data.users);
       }
     } catch (error) {
-      toast.error("Fehler beim Abrufen der Benutzer:", error);
+      toast.error("Error fetching users:", error);
     }
   };
 
@@ -93,7 +93,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
         },
       );
       if (response.status === 200) {
-        toast.success("Benutzer aktualisiert");
+        toast.success("User updated");
         setModalOpen(false);
         window.location.reload();
       }
@@ -104,7 +104,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
 
   const handleDelete = async (shiftId) => {
     const isConfirmed = window.confirm(
-      "Sind Sie sicher, dass Sie diese Schicht löschen möchten?",
+      "Are you sure you want to delete this shift?",
     );
 
     if (isConfirmed) {
@@ -117,7 +117,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
           window.location.reload();
         }
       } catch (error) {
-        toast.error("Fehler beim Löschen der Schichten:", error);
+        toast.error("Error deleting shifts:", error);
       }
     }
   };
@@ -135,11 +135,11 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
       <div className="bg-white rounded-xl shadow-xl p-6 w-full max-w-md relative">
         <div className="flex justify-between items-center mb-4">
           <h2 id="modal-title" className="text-xl font-semibold">
-            Schicht bearbeiten
+            Edit Shift
           </h2>
           <button
             onClick={() => setModalOpen(false)}
-            aria-label="Schließen"
+            aria-label="Close"
             className="text-gray-500 hover:text-gray-800 text-2xl focus:outline-none focus:ring-2 focus:ring-primary rounded-md p-1"
           >
             ×
@@ -169,7 +169,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
                 onClick={() => handleDelete(initialData._id)}
                 className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               >
-                Löschen
+                Delete
               </button>
             </div>
           </div>
@@ -178,7 +178,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
               htmlFor="edit-employee"
               className="block text-sm font-medium text-gray-600"
             >
-              Mitarbeiter
+              Employee
             </label>
             <select
               id="edit-employee"
@@ -186,7 +186,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
               onChange={(e) => setEmployee(e.target.value)}
               className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-500"
             >
-              <option value="">Bitte auswählen</option>
+              <option value="">Please select</option>
               {allUsers &&
                 allUsers
                   .filter((user) => user.isActive)
@@ -203,7 +203,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
               htmlFor="edit-date"
               className="block text-sm font-medium text-gray-600"
             >
-              Datum
+              Date
             </label>
             <input
               id="edit-date"
@@ -220,7 +220,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
               htmlFor="edit-shift"
               className="block text-sm font-medium text-gray-600"
             >
-              Schicht
+              Shift
             </label>
             <select
               id="edit-shift"
@@ -228,8 +228,8 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
               onChange={(e) => setShift(e.target.value)}
               className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-500"
             >
-              <option value="morning">Frühschicht (08:00 - 16:30)</option>
-              <option value="night">Spätschicht (13:30 - 22:00)</option>
+              <option value="morning">Early Shift (08:00 - 16:30)</option>
+              <option value="night">Late Shift (13:30 - 22:00)</option>
             </select>
           </div>
 
@@ -239,7 +239,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
                 htmlFor="edit-start"
                 className="block text-sm font-medium text-gray-600"
               >
-                Beginn
+                Start
               </label>
               <input
                 id="edit-start"
@@ -254,7 +254,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
                 htmlFor="edit-end"
                 className="block text-sm font-medium text-gray-600"
               >
-                Ende
+                End
               </label>
               <input
                 id="edit-end"
@@ -271,7 +271,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
               htmlFor="edit-notes"
               className="block text-sm font-medium text-gray-600"
             >
-              Notizen
+              Notes
             </label>
             <textarea
               id="edit-notes"
@@ -279,7 +279,7 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
               onChange={(e) => setNotes(e.target.value)}
               className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-500"
               rows={3}
-              placeholder="(Optional) Bitte schreiben Sie etwas..."
+              placeholder="(Optional) Please write something..."
             ></textarea>
           </div>
 
@@ -289,13 +289,13 @@ const EditModal = ({ modalOpen, initialData, setModalOpen }) => {
               onClick={() => setModalOpen(false)}
               className="px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 focus:ring-2 focus:ring-gray-300"
             >
-              Schließen
+              Close
             </button>
             <button
               type="submit"
               className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
-              Schicht aktualisieren
+              Update Shift
             </button>
           </div>
         </form>

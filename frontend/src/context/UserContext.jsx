@@ -28,7 +28,7 @@ const UserProvider = ({ children }) => {
         const response = await axiosInstance.get(API_PATH.AUTH.GET_PROFILE);
         setUser(response.data);
       } catch {
-        toast.error("Benutzer nicht authentifiziert");
+        toast.error("User not authenticated");
         clearUser();
       } finally {
         setLoading(false);

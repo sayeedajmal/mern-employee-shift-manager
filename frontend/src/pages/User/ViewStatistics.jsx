@@ -89,12 +89,12 @@ const ViewStatistics = () => {
   }, [events, selectedMonth]);
 
   return (
-    <DashboardLayout activeMenu="Statistiken anzeigen">
+    <DashboardLayout activeMenu="View Statistics">
       {events?.length > 0 && (
         <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="col-span-1 md:col-span-3 bg-white rounded-2xl shadow-md p-4">
             <h2 className="text-xl font-semibold mb-4">
-              Monatliche Schichtübersicht:
+              Monthly Shift Overview:
               <span className="text-red-500">
                 {" "}
                 {moment(selectedMonth).format("MM/yyyy")}
@@ -105,12 +105,12 @@ const ViewStatistics = () => {
                 <FaChevronLeft
                   size={40}
                   className="p-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full shadow transition"
-                  aria-label="Links"
+                  aria-label="Left"
                 />
               </button>
 
               <div className="bg-yellow-100 rounded-2xl p-4 shadow-md flex-3 ">
-                <p className="text-lg font-medium">Frühschichten</p>
+                <p className="text-lg font-medium">Early Shifts</p>
                 <p className="text-3xl font-bold text-yellow-600">
                   {
                     filteredEvents.filter((event) =>
@@ -120,13 +120,13 @@ const ViewStatistics = () => {
                 </p>
               </div>
               <div className="bg-blue-100 rounded-2xl p-4 shadow-md flex-3 ">
-                <p className="text-lg font-medium">Gesamte Schichten</p>
+                <p className="text-lg font-medium">Total Shifts</p>
                 <p className="text-3xl font-bold text-blue-600">
                   {filteredEvents.length}
                 </p>
               </div>
               <div className="bg-purple-100 rounded-2xl p-4 shadow-md flex-3">
-                <p className="text-lg font-medium">Spätschichten</p>
+                <p className="text-lg font-medium">Late Shifts</p>
                 <p className="text-3xl font-bold text-purple-600">
                   {
                     filteredEvents.filter((event) =>
@@ -139,14 +139,14 @@ const ViewStatistics = () => {
                 <FaChevronRight
                   size={40}
                   className="p-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full shadow transition"
-                  aria-label="Rechts"
+                  aria-label="Right"
                 />
               </button>
             </div>
           </div>
 
           <div className="col-span-1 md:col-span-3 bg-white rounded-2xl shadow-md p-4">
-            <h2 className="text-xl font-semibold mb-4">Diagramme</h2>
+            <h2 className="text-xl font-semibold mb-4">Charts</h2>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="w-full md:w-2/3 h-72">
                 <ResponsiveContainer width="100%" height="100%">
@@ -154,8 +154,8 @@ const ViewStatistics = () => {
                     <XAxis dataKey="weekday" />
                     <YAxis allowDecimals={false} />
                     <Tooltip />
-                    <Bar dataKey="morning" fill="#facc15" name="Früh" />
-                    <Bar dataKey="evening" fill="#a78bfa" name="Spät" />
+                    <Bar dataKey="morning" fill="#facc15" name="Early" />
+                    <Bar dataKey="evening" fill="#a78bfa" name="Late" />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -166,13 +166,13 @@ const ViewStatistics = () => {
                     <Pie
                       data={[
                         {
-                          name: "Früh",
+                          name: "Early",
                           value: filteredEvents.filter((event) =>
                             String(event.start).endsWith("08:00")
                           ).length,
                         },
                         {
-                          name: "Spät",
+                          name: "Late",
                           value: filteredEvents.filter((event) =>
                             String(event.start).endsWith("13:30")
                           ).length,
@@ -198,7 +198,7 @@ const ViewStatistics = () => {
 
           <div className="col-span-1 md:col-span-3 bg-white rounded-2xl shadow-md p-4 overflow-auto">
             <h2 className="text-xl font-semibold mb-4">
-              Monatliche Schichtübersicht
+              Monthly Shift Overview
             </h2>
             <UserShiftTable
               user={user}

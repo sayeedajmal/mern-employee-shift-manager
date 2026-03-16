@@ -30,7 +30,7 @@ const CreateShifts = () => {
 
   const shiftSave = async () => {
     const isConfirmed = window.confirm(
-      "Dadurch werden die bestehenden Schichten gelöscht und entsprechend Ihrer Auswahl neu geschrieben!",
+      "This will delete existing shifts and rewrite them according to your selection!",
     );
     if (isConfirmed) {
       try {
@@ -49,7 +49,7 @@ const CreateShifts = () => {
             ],
           );
           if (response.status === 201) {
-            toast.success("Schichten wurden erfolgreich erstellt");
+            toast.success("Shifts created successfully");
           }
         }
       } catch (error) {
@@ -100,17 +100,17 @@ const CreateShifts = () => {
   }, [allUsers]);
 
   return (
-    <DashboardLayout activeMenu="Schichten erstellen">
+    <DashboardLayout activeMenu="Create Shifts">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-4 md:my-6">
         <div className="md:col-span-2">
           <div className="card">
             <div className="flex items-center justify-between">
-              <h5 className="text-lg">Schichten erstellen</h5>
+              <h5 className="text-lg">Create Shifts</h5>
               <button className="card-btn" onClick={() => setShow(!show)}>
-                {show ? "Kalender ausblenden" : "Kalender anzeigen"}
+                {show ? "Hide Calendar" : "Show Calendar"}
               </button>
               <button className="card-btn" onClick={shiftSave}>
-                Schichten speichern
+                Save Shifts
               </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-3 md:gap-6 mt-5">
@@ -142,7 +142,7 @@ const CreateShifts = () => {
                     <div
                       className="flex flex-row gap-2 flex-wrap"
                       role="group"
-                      aria-label={`Schichtwahl für ${user.name}`}
+                      aria-label={`Shift choice for ${user.name}`}
                     >
                       <button
                         disabled={handleDisable(user, "morning")}
@@ -158,7 +158,7 @@ const CreateShifts = () => {
                             : "border border-red-400 text-black"
                         }`}
                       >
-                        Früh
+                        Early
                       </button>
 
                       <button
@@ -174,7 +174,7 @@ const CreateShifts = () => {
                             : "border border-red-400 text-black"
                         }`}
                       >
-                        Egal
+                        Any
                       </button>
 
                       <button
@@ -191,7 +191,7 @@ const CreateShifts = () => {
                             : "border border-red-400 text-black"
                         }`}
                       >
-                        Spät
+                        Late
                       </button>
                     </div>
 
